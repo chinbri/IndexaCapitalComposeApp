@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    alias(libs.plugins.hilt.gradle)
 }
 
 android {
@@ -66,4 +68,19 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    //Hilt
+    implementation(libs.hilt.android)
+//    implementation(libs.androidx.hilt.common)
+//    implementation(libs.androidx.hilt.work)
+    kapt(libs.hilt.android.compiler)
+//    annotationProcessor(libs.androidx.hilt.compiler)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
