@@ -8,6 +8,9 @@ plugins {
 android {
     namespace = "com.chinbri.indexacapitalapp"
     compileSdk = 34
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.chinbri.indexacapitalapp"
@@ -20,6 +23,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val indexaToken: String by project
+        buildConfigField("String", "API_TOKEN", "\"$indexaToken\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://api.indexacapital.com/\"")
     }
 
     buildTypes {
@@ -49,6 +56,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -66,6 +74,7 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
 
     //Hilt
     implementation(libs.hilt.android)
@@ -74,7 +83,7 @@ dependencies {
     kapt(libs.hilt.android.compiler)
 //    annotationProcessor(libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

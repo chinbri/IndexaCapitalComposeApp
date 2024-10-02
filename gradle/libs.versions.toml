@@ -11,6 +11,7 @@ composeBom = "2024.04.01"
 vRetrofit = "2.9.0"
 vHilt = "2.51.1"
 androidXHilt = "1.1.0"
+vLoggingInterceptor = "4.9.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,7 +36,7 @@ androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref 
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidXHilt" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "vHilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "vHilt" }
-
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "vLoggingInterceptor" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
