@@ -15,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(private val getUserInfoUseCase: GetUserInfoUseCase): ViewModel(){
 
+
     private val _userInfo = MutableStateFlow<UserInfoResponse?>(null)
     val userInfo: StateFlow<UserInfoResponse?> = _userInfo.asStateFlow()
 
