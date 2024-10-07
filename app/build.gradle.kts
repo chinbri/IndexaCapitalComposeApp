@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.chinbri.indexacapitalapp"
-    compileSdk = 34
+    compileSdk = 35
     buildFeatures {
         buildConfig = true
     }
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId = "com.chinbri.indexacapitalapp"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -39,17 +39,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
