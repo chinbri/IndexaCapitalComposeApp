@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">IndexaCapitalApp</string>
     <string name="accounts_title">Estas son tus cuentas</string>
+    <string name="isin">ISIN</string>
+    <string name="name">Nombre</string>
+    <string name="description">Descripción</string>
+    <string name="amount">Cantidad total</string>
 </resources>

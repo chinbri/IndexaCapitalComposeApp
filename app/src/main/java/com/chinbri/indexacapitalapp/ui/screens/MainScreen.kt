@@ -8,22 +8,27 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.chinbri.indexacapitalapp.R
 import com.chinbri.indexacapitalapp.presentation.MainViewModel
-import com.chinbri.indexacapitalapp.ui.theme.IndexaCapitalAppTheme
 
 @Composable
-fun MainScreen(innerPadding: PaddingValues,
-               navController: NavHostController,
-               mainViewModel: MainViewModel = hiltViewModel()) {
+fun MainScreen(
+    innerPadding: PaddingValues,
+    navController: NavHostController,
+    mainViewModel: MainViewModel = hiltViewModel()
+) {
 
     val userInfo = mainViewModel.userInfo.collectAsState()
 
@@ -63,21 +68,30 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    IndexaCapitalAppTheme {
-        Greeting("Android")
-    }
-}
 
 @Composable
-fun IndexaText(modifier: Modifier = Modifier, text: String) {
+fun IndexaText(
+    modifier: Modifier = Modifier,
+    text: String,
+    fontStyle: FontStyle = FontStyle.Normal,
+    fontSize: TextUnit = 16.sp,
+    color: Color = Color.DarkGray,
+    maxLines: Int = 1,
+    expandable: Boolean = false
+) {
+
+    var expanded by remember { mutableStateOf(false) }
+
     Text(
-        modifier = modifier,
+        modifier = if (expandable) {
+            modifier.clickable {
+                expanded = !expanded
+            }
+        } else modifier,
         text = text,
-        fontStyle = FontStyle.Normal,
-        fontSize = 16.sp,
-        color = Color.Gray
+        fontStyle = fontStyle,
+        fontSize = fontSize,
+        color = color,
+        maxLines = if (expanded) Int.MAX_VALUE else maxLines
     )
 }

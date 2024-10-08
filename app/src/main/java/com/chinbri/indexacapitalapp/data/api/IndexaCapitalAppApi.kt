@@ -15,7 +15,7 @@ interface IndexaCapitalAppApi {
     ): UserInfoResponse
 
 
-    @GET("accounts/{account_number}")
+    @GET("accounts/{account_number}/portfolio")
     suspend fun getAccountInfo(
         @Header("Accept") accept: String = "*/*",
         @Header("X-AUTH-TOKEN") authToken: String,
