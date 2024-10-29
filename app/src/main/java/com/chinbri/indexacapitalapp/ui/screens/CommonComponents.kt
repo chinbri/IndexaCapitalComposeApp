@@ -73,15 +73,6 @@ fun HyperlinkText(
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-
-@Composable
 fun IndexaText(
     modifier: Modifier = Modifier,
     text: String,

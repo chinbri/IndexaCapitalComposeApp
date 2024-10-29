@@ -6,4 +6,7 @@
     <string name="description">Descripción</string>
     <string name="amount">Cantidad total</string>
     <string name="close">Cerrar</string>
+    <string name="account_pension">Plan de pensión</string>
+    <string name="account_investment">Fondos de inversión</string>
+    <string name="wellcome">Bienvenido</string>
 </resources>

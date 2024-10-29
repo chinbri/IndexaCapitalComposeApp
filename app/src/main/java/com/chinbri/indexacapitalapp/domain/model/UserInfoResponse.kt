@@ -12,4 +12,5 @@ data class UserInfoResponse(
 data class Account(
     @SerializedName("account_number")
     val accountNumber: String,
+    val type: String,
 )
